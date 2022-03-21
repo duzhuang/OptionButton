@@ -1,16 +1,14 @@
-### tabView的作用
-> tabView 是一个用于切换多个按钮选中的组件
-### 如何使用tabView
+### OptionButton的作用
+> OptionButton 是一个用于切换多个按钮选中的组件
+### 如何使用OptionButton
 
 **第一步**
-将tabView组件拷贝到自己的项目下
+将OptionButton组件拷贝到自己的项目下
 
 **第二步**
-在项目中新建一个空白节点，拖拽tabView组件到节点上
+在项目中新建一个空白节点，拖拽OptionButton组件到节点上
 
-**第三步** *设置tabView的属性面板*
-
-**buttonItemContentSize**:按钮的尺寸
+**第三步** *设置OptionButton的属性面板*
 
 **tabCount**:按钮的具体个数。tips：输入个数之后，在tabView的根节点上会自动生成按钮
 
