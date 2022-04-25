@@ -10,11 +10,11 @@
 
 **第三步** *设置OptionButton的属性面板*
 
-**tabCount**:按钮的具体个数。tips：输入个数之后，在tabView的根节点上会自动生成按钮
+**tabCount**:按钮的具体个数。tips：输入个数之后，在OptionButton的根节点上会自动生成按钮
 
 **buttonItem**:按钮节点，tips：1、可以在输入tabCount之后将自动生成的按钮节点拖拽到此属性上。2、可以自己构建自己的预制体拖拽到此属性上，但是自己构建的预支的结构必须包含 
 ```javascript
-tabViewNode{
+optionButtonNode{
     btnNode{
         select //选中节点  
         lbl //按钮字体显示节点 
