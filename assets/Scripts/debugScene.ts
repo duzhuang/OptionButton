@@ -6,7 +6,7 @@ export default class NewClass extends cc.Component {
     @property({type:cc.Label,tooltip:''})
     showLabel: cc.Label = null;
 
-    protected onLoad(): void {
+    protected onLoad(): void {        
         cc.game.on("OptionButtonClick",this.onOptionButtonClick,this);
     }
 

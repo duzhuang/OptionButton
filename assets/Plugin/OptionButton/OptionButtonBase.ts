@@ -122,7 +122,10 @@ export default class OptionButtonBase extends cc.Component {
         }
         btnNode.on(cc.Node.EventType.TOUCH_END, event => {
             cc.Component.EventHandler.emitEvents([this._eventHandler[btnIndex]], event);
-            cc.game.emit("OptionButtonClick", btnIndex);
+            //组件内进行通信，加入uuid主要是为了区分多个OptionButton分别响应自己的消息
+            cc.game.emit("OptionButtonClick" + this.node.uuid, btnIndex);
+            //组件外进行监听事件
+            this.node.emit("OptionButtonClick", btnIndex);
         })
     }
 
@@ -187,7 +190,7 @@ export default class OptionButtonBase extends cc.Component {
      * 在运行环境中初始化
      */
     _init() {
-        cc.game.on("OptionButtonClick", (index) => {
+        cc.game.on("OptionButtonClick" + this.node.uuid, (index) => {
             this._switchSelectButton(index);
         }, this);
         this._btnList = this.node.children;
@@ -211,7 +214,7 @@ export default class OptionButtonBase extends cc.Component {
     }
 
     protected onDestroy(): void {
-        cc.game.off("OptionButtonClick", (data) => {
+        cc.game.off("OptionButtonClick" + this.node.uuid, (data) => {
             this._switchSelectButton(data.btnIndex);
         }, this);
     }
@@ -241,8 +244,8 @@ export default class OptionButtonBase extends cc.Component {
      * @param btnIndex 
      */
     protected setDefaultSelect(btnIndex: number = 0) {
-        cc.Component.EventHandler.emitEvents([this._eventHandler[btnIndex]], event);
-        cc.game.emit("OptionButtonClick", btnIndex);
+        cc.Component.EventHandler.emitEvents([this._eventHandler[btnIndex]], null);
+        cc.game.emit("OptionButtonClick" + this.node.uuid, btnIndex);
         this._switchSelectButton(btnIndex);
     }
 }

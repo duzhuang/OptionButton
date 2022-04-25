@@ -1,6 +1,6 @@
 
 (function () {
-var scripts = [{"deps":{"./assets/Plugin/OptionButton/OptionButton":2,"./assets/Scripts/debugScene":1,"./assets/Plugin/OptionButton/OptionButtonBase":3},"path":"preview-scripts/__qc_index__.js"},{"deps":{},"path":"preview-scripts/assets/Scripts/debugScene.js"},{"deps":{"./OptionButtonBase":3},"path":"preview-scripts/assets/Plugin/OptionButton/OptionButton.js"},{"deps":{},"path":"preview-scripts/assets/Plugin/OptionButton/OptionButtonBase.js"}];
+var scripts = [{"deps":{"./assets/Plugin/OptionButton/OptionButton":3,"./assets/Plugin/OptionButton/OptionButtonBase":2,"./assets/Scripts/debugScene":1},"path":"preview-scripts/__qc_index__.js"},{"deps":{},"path":"preview-scripts/assets/Scripts/debugScene.js"},{"deps":{},"path":"preview-scripts/assets/Plugin/OptionButton/OptionButtonBase.js"},{"deps":{"./OptionButtonBase":2},"path":"preview-scripts/assets/Plugin/OptionButton/OptionButton.js"}];
 var entries = ["preview-scripts/__qc_index__.js"];
 
 /**

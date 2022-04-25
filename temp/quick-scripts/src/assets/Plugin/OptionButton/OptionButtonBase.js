@@ -1,6 +1,6 @@
 "use strict";
 cc._RF.push(module, 'df0feN6GKZGC6az+7caKng0', 'OptionButtonBase');
-// Scripts/Plugin/OptionButton/OptionButtonBase.ts
+// Plugin/OptionButton/OptionButtonBase.ts
 
 /**
  * OptionButton的控制基类
@@ -123,7 +123,10 @@ var OptionButtonBase = /** @class */ (function (_super) {
         }
         btnNode.on(cc.Node.EventType.TOUCH_END, function (event) {
             cc.Component.EventHandler.emitEvents([_this._eventHandler[btnIndex]], event);
-            cc.game.emit("OptionButtonClick", btnIndex);
+            //组件内进行通信
+            cc.game.emit("OptionButtonClick" + _this.node.uuid, btnIndex);
+            //组件外进行监听事件
+            _this.node.emit("OptionButtonClick", btnIndex);
         });
     };
     /**
@@ -182,7 +185,7 @@ var OptionButtonBase = /** @class */ (function (_super) {
      */
     OptionButtonBase.prototype._init = function () {
         var _this = this;
-        cc.game.on("OptionButtonClick", function (index) {
+        cc.game.on("OptionButtonClick" + this.node.uuid, function (index) {
             _this._switchSelectButton(index);
         }, this);
         this._btnList = this.node.children;
@@ -203,7 +206,7 @@ var OptionButtonBase = /** @class */ (function (_super) {
     };
     OptionButtonBase.prototype.onDestroy = function () {
         var _this = this;
-        cc.game.off("OptionButtonClick", function (data) {
+        cc.game.off("OptionButtonClick" + this.node.uuid, function (data) {
             _this._switchSelectButton(data.btnIndex);
         }, this);
     };
@@ -228,8 +231,8 @@ var OptionButtonBase = /** @class */ (function (_super) {
      */
     OptionButtonBase.prototype.setDefaultSelect = function (btnIndex) {
         if (btnIndex === void 0) { btnIndex = 0; }
-        cc.Component.EventHandler.emitEvents([this._eventHandler[btnIndex]], event);
-        cc.game.emit("OptionButtonClick", btnIndex);
+        cc.Component.EventHandler.emitEvents([this._eventHandler[btnIndex]], null);
+        cc.game.emit("OptionButtonClick" + this.node.uuid, btnIndex);
         this._switchSelectButton(btnIndex);
     };
     __decorate([

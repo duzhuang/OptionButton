@@ -8,6 +8,11 @@ var showType = cc.Enum({
 
 const { ccclass, property, menu,executeInEditMode } = cc._decorator;
 
+/**
+ * OptionButton的控制基类
+ * author:daxing
+ * 点击按钮会抛出”OptionButtonClick“事件 数据是当前按钮对应的index
+ */
 @ccclass
 @menu("Plugin/OptionButton")
 @executeInEditMode

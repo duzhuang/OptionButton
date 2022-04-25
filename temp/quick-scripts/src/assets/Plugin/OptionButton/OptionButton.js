@@ -1,6 +1,6 @@
 "use strict";
 cc._RF.push(module, '8a28awLprVFt7Y2FV9suiCX', 'OptionButton');
-// Scripts/Plugin/OptionButton/OptionButton.ts
+// Plugin/OptionButton/OptionButton.ts
 
 Object.defineProperty(exports, "__esModule", { value: true });
 var OptionButtonBase_1 = require("./OptionButtonBase");
@@ -10,6 +10,11 @@ var showType = cc.Enum({
     "TurnOff": 0,
 });
 var _a = cc._decorator, ccclass = _a.ccclass, property = _a.property, menu = _a.menu, executeInEditMode = _a.executeInEditMode;
+/**
+ * OptionButton的控制基类
+ * author:daxing
+ * 点击按钮会抛出”OptionButtonClick“事件 数据是当前按钮对应的index
+ */
 var OptionButton = /** @class */ (function (_super) {
     __extends(OptionButton, _super);
     function OptionButton() {
