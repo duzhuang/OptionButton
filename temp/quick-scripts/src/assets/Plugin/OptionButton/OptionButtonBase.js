@@ -123,7 +123,7 @@ var OptionButtonBase = /** @class */ (function (_super) {
         }
         btnNode.on(cc.Node.EventType.TOUCH_END, function (event) {
             cc.Component.EventHandler.emitEvents([_this._eventHandler[btnIndex]], event);
-            //组件内进行通信
+            //组件内进行通信，加入uuid主要是为了区分多个OptionButton分别响应自己的消息
             cc.game.emit("OptionButtonClick" + _this.node.uuid, btnIndex);
             //组件外进行监听事件
             _this.node.emit("OptionButtonClick", btnIndex);
